@@ -1,13 +1,13 @@
 import { LOGO_URL } from "../utils/content";
+import { useState } from "react";
 
 const Header = () => {
+  const [btnNameReact, setBtnNameReact] = useState("login");
+
   return (
     <div className="header">
       <div className="logo-container">
-        <img
-          className="logo"
-          src={LOGO_URL}
-        ></img>
+        <img className="logo" src={LOGO_URL}></img>
       </div>
       <div className="nav-items">
         <ul>
@@ -16,18 +16,25 @@ const Header = () => {
           </li>
           <li>
             <a href="#">Sign In</a>
-          </li> 
+          </li>
           <li>
             <a href="#">Sign Up</a>
           </li>
           <li>
             <a href="#">cart</a>
           </li>
+          <button
+            className="login"
+            onClick={() => {
+              setBtnNameReact("logout");
+            }}
+          >
+            {btnNameReact}
+          </button>
         </ul>
       </div>
     </div>
   );
 };
-
 
 export default Header;
