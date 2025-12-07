@@ -45,6 +45,7 @@
 .res-card:hover{
     cursor: pointer;
     border: 1.5px solid black;
+    box-shadow:0 10px 25px rgba(0, 0, 0, 0.5);
     transition: ease-in-out;
 }
 
@@ -69,4 +70,15 @@
     width: 200px;
     height: 400px;
     background-color: rgb(211, 211, 211);
+}
+
+.filter{
+    display: flex;
+}
+
+.search{
+    position: relative;
+    left: 10px;
+    margin: 10px;
+    padding: 5px;
 }
