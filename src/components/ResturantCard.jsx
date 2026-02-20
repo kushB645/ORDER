@@ -1,24 +1,22 @@
-import { CON_URL } from "../utils/content";
 
 const ResturantCard = (props) => {
   const { resData } = props;
 
-  const { cloudinaryImageId, name, cuisines, avgRating, costForTwoString } =
-    resData?.info;
+  const { image, restaurantName, type, address, rating, deliveryTime} =
+    resData;
   return (
     <div className="res-card" style={{ backgroundColor: "#e2e1e1ff" }}>
       <img
         className="food-logo"
         src={
-          CON_URL+
-          cloudinaryImageId
+          image
         }
       />
-      <h3>{name}</h3>
-      <h3>{cuisines?.join(" , ")}</h3>
-      <h3>{avgRating}ratings</h3>
-      <h3>{costForTwoString}</h3>
-      <h3>{resData.info.sla.deliveryTime}min</h3>
+      <h3>{restaurantName}</h3>
+      <h3>{type}</h3>
+      <h3>{address}</h3>
+      <h3><i className="ri-star-s-fill"></i>{rating}</h3>
+      <h3>{deliveryTime}</h3>
     </div>
   );
 };

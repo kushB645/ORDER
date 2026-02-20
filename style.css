@@ -37,6 +37,7 @@
 }
 
 .res-card{
+    height: 450px;
     margin: 5px 10px;
     padding: 5px;
     width: 250px;
@@ -81,4 +82,9 @@
     left: 10px;
     margin: 10px;
     padding: 5px;
+}
+
+.food-logo{
+    height: 45%;
+    width: 100%;
 }
