@@ -1,7 +1,8 @@
-import RestaurantCard from "./ResturantCard";
-import { useState, useEffect, use } from "react";
+import RestaurantCard from "./RestaurantCard";
+import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import resList from "../utils/RestaurantDetail";
+import { Link } from "react-router-dom";
 const Body = () => {
   const [ListofRestaurant, setListofRestaurant] = useState(resList);
   const [filteredRestaurant, setfilteredRestaurant] = useState(resList);
@@ -44,7 +45,9 @@ const Body = () => {
             onClick={() => {
               //filter the restuarants cards from search text
               const filteredRestaurant = ListofRestaurant.filter((res) =>
-                res.restaurantName.toLowerCase().includes(SearchText.toLowerCase()),
+                res.restaurantName
+                  .toLowerCase()
+                  .includes(SearchText.toLowerCase()),
               );
               setfilteredRestaurant(filteredRestaurant);
             }}
@@ -68,7 +71,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((resturant) => (
-          <RestaurantCard key={resturant.restaurantID} resData={resturant} />
+          <Link
+            key={resturant.restaurantID}
+            to={`/restaurant/${resturant.restaurantID}`}
+          >
+            <RestaurantCard resData={resturant} />
+          </Link>
         ))}
       </div>
     </div>
