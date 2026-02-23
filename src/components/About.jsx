@@ -25,7 +25,6 @@ const About = () => {
     </div>
     <div className="Values">
         <h1>Our Values</h1>
-
         <div className="value-container">
         <div className="value-card">
             <i className="ri-group-line"></i>

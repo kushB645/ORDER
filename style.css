@@ -1,95 +1,191 @@
-.header{
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+  font-family: "poppins",sans-serif;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 20px;
+  border: 2px solid black;
+  border-radius: 2px;
+  padding: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+}
+
+.nav-items ul {
+  margin-top:30px;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-items li {
+  list-style-type: none;
+}
+
+.nav-items a {
+  text-decoration: none;
+}
+
+.search-bar {
+  margin: 10px 20px;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 50px;
+}
+
+.res-card {
+  height: 450px;
+  margin: 5px 15px;
+  padding: 5px;
+  width: 250px;
+}
+
+.res-card h3{
+  padding: 5px;
+}
+
+.res-card:hover {
+  cursor: pointer;
+  border: 1.5px solid black;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: ease-in-out;
+}
+
+.food-logo {
+  width: 100%;
+}
+
+.filter-btn {
+  position: relative;
+  left: 10px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.shimmer-conatiner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-cards {
+  margin: 20px;
+  width: 200px;
+  height: 400px;
+  background-color: rgb(211, 211, 211);
+}
+
+.filter {
+  display: flex;
+}
+
+.search {
+  position: relative;
+  left: 10px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.food-logo {
+  height: 45%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.container-about{
+    background-color: #f5f1eb;
+}
+
+.heading{
     display: flex;
-    justify-content: space-between;
-    margin: 0px 20px;
-    border: 2px solid black;
-    border-radius: 2px;
-    padding: 10px;
-    box-shadow:0 10px 25px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 132, 0);
+    padding: 50px;
+    color: white;
 }
 
-.logo{
-    width: 80px;
-    height: auto;
+.heading h1{
+  padding: 10px;
 }
 
-.nav-items ul{
-    display: flex;
-    gap: 20px;
-}    
-
-.nav-items li{
-    list-style-type: none;
+.story-section {
+  margin: 80px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
 }
 
-.nav-items a{
-    text-decoration: none;
+.story h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #0f172a;
 }
 
-.search-bar{
-    margin: 10px 20px;
+.story{
+    flex: 1;
 }
 
-.res-container{
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 50px;
+.story p{
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #334155;
+}
+.story-img img{
+    flex: 1;
+    height: 386px;
+    width: 576px;
+    border-radius: 10px;
 }
 
-.res-card{
-    height: 450px;
-    margin: 5px 10px;
-    padding: 5px;
-    width: 250px;
+
+.Values {
+  margin-top: 60px;
+  padding: 40px;
 }
 
-.res-card:hover{
-    cursor: pointer;
-    border: 1.5px solid black;
-    box-shadow:0 10px 25px rgba(0, 0, 0, 0.5);
-    transition: ease-in-out;
+.Values h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 36px;
 }
 
-.food-logo{
-    width: 100%;
+
+.value-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
-.filter-btn{
-    position: relative;
-    left: 10px;
-    margin: 10px;
-    padding: 5px;
-}
-
-.shimmer-conatiner{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.shimmer-cards{
-    margin: 20px;
-    width: 200px;
-    height: 400px;
-    background-color: rgb(211, 211, 211);
-}
-
-.filter{
-    display: flex;
-}
-
-.search{
-    position: relative;
-    left: 10px;
-    margin: 10px;
-    padding: 5px;
-}
-
-.food-logo{
-    height: 45%;
-    width: 100%;
-}
-
-a{
-    text-decoration: none;
-    color: black;
+.value-card {
+  background: #fff;
+  width: 250px;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
