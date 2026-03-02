@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import resList from "../utils/RestaurantDetail";
 import { Link } from "react-router-dom";
+import Footer from "./footer";
+
+
 const Body = () => {
   const [ListofRestaurant, setListofRestaurant] = useState(resList);
   const [filteredRestaurant, setfilteredRestaurant] = useState(resList);
@@ -79,6 +82,8 @@ const Body = () => {
           </Link>
         ))}
       </div>
+
+      <Footer />
     </div>
   );
 };

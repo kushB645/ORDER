@@ -5,7 +5,7 @@ const resList = [
     address: "Jaipur, Amber Fort, Rajasthan",
     type: "Rajasthani",
     parkingLot: true,
-    image: "https://chokhidhani.com/welcome-indore/wp-content/uploads/elementor/thumbs/DAL-BAATI-CHURMA-1-r7wvfnqtjacvxpyjlcmrra6cvu5ohh4vwjcqk6czhc.jpg",
+    image: "https://i.pinimg.com/736x/d0/8a/b7/d08ab759572ca8db140486a0a7a8b4aa.jpg",
     rating: 4.6,
     deliveryTime: "40-50 mins"
   },

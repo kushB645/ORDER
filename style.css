@@ -188,4 +188,90 @@ a {
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all ease-in-out 0.2s;
+}
+
+.value-card:hover{
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.footer {
+  background: #0f172a;
+  color: white;
+  padding: 40px 20px 20px;
+  margin-top: 10px;
+}
+
+/* Layout */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Text */
+.footer p {
+  color: #cbd5e1;
+  margin: 5px 0;
+}
+
+/* Suggestion box */
+.social-link textarea {
+  width: 100%;
+  max-width: 260px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #1e293b;
+  background: #1e293b;
+  color: white;
+  outline: none;
+  transition: 0.3s;
+}
+
+.social-link textarea:focus {
+  border-color: #ff7a18;
+  box-shadow: 0 0 8px rgba(255, 122, 24, 0.5);
+}
+
+/* Social icons */
+.social {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.social a {
+  color: #cbd5e1;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.social a:hover {
+  color: #ff7a18;
+  transform: scale(1.2);
+}
+
+/* Bottom */
+.footer-bottom {
+  border-top: 1px solid #1e293b;
+  margin-top: 20px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.brand-desc {
+  margin-top: 10px;
+  color: #94a3b8;
+  font-size: 14px;
+  max-width: 330px;
+  line-height: 1.6;
+}
+
+
+.brand-line h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ff7a18;
 }
