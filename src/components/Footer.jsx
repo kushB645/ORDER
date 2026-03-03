@@ -17,7 +17,6 @@ const Footer = () =>{
             <p>+91-9087231427</p>
             <p>Wz 932/h, Basai Darapur</p>
           </div>
-
           <div className="social-link">
             <h3>Give suggestion</h3>
             <textarea

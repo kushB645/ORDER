@@ -57,6 +57,7 @@ html,body{
   margin: 5px 15px;
   padding: 5px;
   width: 250px;
+  border-radius: 12px;
 }
 
 .res-card h3{
@@ -72,6 +73,7 @@ html,body{
 
 .food-logo {
   width: 100%;
+  border-radius: 12px;
 }
 
 .filter-btn {
@@ -274,4 +276,128 @@ a {
   font-size: 22px;
   font-weight: 600;
   color: #ff7a18;
+}
+
+.container-contact{
+  background-color: #f5f1eb;
+}
+
+.main{
+  display: flex;
+  gap: 40px;
+  padding: 50px 50px;
+}
+
+#details {
+  margin: 10px;
+  display: grid;
+  gap: 20px;
+}
+
+.details-icon {
+  display: flex;
+  align-items: flex-start; 
+  gap: 15px;
+  width: 90%;
+  padding: 15px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.details-icon:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.details-icon i {
+  background: #fff3e6;
+  padding: 12px;
+  border-radius: 12px;
+  color: #ff7a18;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.details-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.details-content h3 {
+  margin-bottom: 8px;
+}
+
+.get-in-touch {
+  flex: 1;
+}
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message-container {
+  height: 650px;
+  flex: 1;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+label{
+  display: flex;
+}
+
+input{
+  padding: 9px 40px;
+}
+
+.message-form{
+  width: 70%;
+  height: 50%;
+}
+
+input,
+textarea {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 14px;
+  background: #f8fafc;
+  transition: 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #ff7a18;
+  box-shadow: 0 0 6px rgba(255, 122, 24, 0.3);
+}
+
+textarea{
+  height: 169px;
+  width: 612px;
+  resize: none;
+}
+
+.message-form button {
+  width: 612px;
+  margin-top: 10px;
+  padding: 14px;
+  background: #ff7a18;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.message-form button:hover {
+  background: #ff5500;
+  transform: translateY(-2px);
 }
