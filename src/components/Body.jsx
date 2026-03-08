@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import resList from "../utils/RestaurantDetail";
 import { Link } from "react-router-dom";
-import Footer from "./footer";
+import Footer from "./Footer";
 
 
 const Body = () => {

@@ -4,7 +4,7 @@ const Footer = () =>{
         <div className="footer-container">
           <div className="brand-line">
             <h3>Food Delivery</h3>
-            <p>Delivering happiness, one meal at a time</p>
+            <p id="tag-line">Delivering happiness, one meal at a time</p>
             <p className="brand-desc">
               We connect food lovers with their favorite restaurants, ensuring
               fast delivery and unforgettable taste experiences across the
@@ -43,9 +43,6 @@ const Footer = () =>{
         </div>
         <div className="footer-bottom">
           <p>© 2026 Food Delivery. All rights reserved.</p>
-          <p className="owner">
-            Made with ❤️ by <span>Kush Bhardwaj</span>
-          </p>
         </div>
       </div>
     )

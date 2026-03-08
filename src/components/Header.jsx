@@ -6,10 +6,10 @@ const Header = () => {
     return (
         <div className="header">
             <div className="logo-container">
-                <img
+                <Link to="/"><img
                     className="logo"
                     src={LOGO_URL}
-                />
+                /></Link>
             </div>
             <div className="nav-items">
                 <ul>

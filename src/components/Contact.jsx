@@ -1,4 +1,4 @@
-import Footer from "./footer";
+import Footer from "./Footer";
 
 const Contact = () => {
   return (
@@ -54,6 +54,8 @@ const Contact = () => {
 
           <form className="message-form">
             <div className="row">
+
+              <div className="name-email">
               <div className="input-group">
                 <label>Your Name</label>
                 <input type="text" placeholder="Enter your name..." required/>
@@ -64,10 +66,10 @@ const Contact = () => {
                 <input type="email" placeholder="Enter your email..." required/>
               </div>
             </div>
-
+            </div>
             <div className="input-group">
               <label>Subject</label>
-              <input type="text" placeholder="How can we help you?" required/>
+              <input id="subject" type="text" placeholder="How can we help you?" required/>
             </div>
 
             <div className="input-group">
