@@ -1,29 +1,62 @@
 import { LOGO_URL } from "../utils/content";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-const Header = () => {
-    const [btnNameReact,setbtnNameReact] = useState("login");
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <Link to="/"><img
-                    className="logo"
-                    src={LOGO_URL}
-                /></Link>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About us</Link></li>
-                    <li><Link to="/contact">Contact us</Link></li>
-                    <li><Link to="/cart">Cart</Link></li>
-                    <button className="login" onClick={()=>{
-                        btnNameReact=="login"?setbtnNameReact("logout"):setbtnNameReact("login");
+import { NavLink } from "react-router-dom";
+import { CartContext } from "./CartContext";
 
-                    }}>{btnNameReact}</button>
-                </ul>
-            </div>
-        </div>
-    );
+const Header = () => {
+  const [btnNameReact, setbtnNameReact] = useState("Login");
+  const { cart } = useContext(CartContext);
+
+  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+
+  return (
+    <div className="header">
+      {/* LEFT SIDE LOGO */}
+
+      <div className="logo-section">
+        <Link to="/">
+          <img className="logo" src={LOGO_URL} />
+        </Link>
+      </div>
+
+      {/* NAVIGATION */}
+
+      <div className="nav-items">
+        <NavLink to="/" className="nav-link">
+          Home
+        </NavLink>
+
+        <NavLink to="/about" className="nav-link">
+          About us
+        </NavLink>
+
+        <NavLink to="/contact" className="nav-link">
+          Contact us
+        </NavLink>
+
+        {/* CART */}
+
+        <Link className="cart-icon" to="/cart">
+          🛒
+          {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
+        </Link>
+
+        {/* LOGIN BUTTON */}
+
+        <button
+          className="login-btn"
+          onClick={() => {
+            btnNameReact === "Login"
+              ? setbtnNameReact("Logout")
+              : setbtnNameReact("Login");
+          }}
+        >
+          {btnNameReact}
+        </button>
+      </div>
+    </div>
+  );
 };
+
 export default Header;
