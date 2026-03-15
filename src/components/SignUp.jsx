@@ -8,26 +8,73 @@ const SignUp = () => {
   const [password,setPassword] = useState("");
   const [showPassword,setShowPassword] = useState(false);
   const [error,setError] = useState("");
+  const [loading,setLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // strong password
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 
     if(!name || !email || !password){
       setError("Please fill all fields");
       return;
     }
 
-    if(password.length < 6){
-      setError("Password must be at least 6 characters");
+    if(!emailRegex.test(email)){
+      setError("Enter a valid email address");
       return;
     }
 
-    const user = {name,email,password};
+    if(!passwordRegex.test(password)){
+      setError(
+        "Password must contain 8+ characters, uppercase, lowercase, number and special symbol"
+      );
+      return;
+    }
 
-    localStorage.setItem("user",JSON.stringify(user));
+    try{
 
-    navigate("/login");
+      setLoading(true);
+
+      const res = await fetch("http://localhost:5000/signup",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          name,
+          email,
+          password
+        })
+      });
+
+      const data = await res.json();
+
+      if(data.message === "User already exists"){
+        setError("User already exists");
+        setLoading(false);
+        return;
+      }
+
+      alert("Account created successfully");
+
+      navigate("/login");
+
+    }catch(err){
+
+      setError("Server error. Try again later.");
+
+    }finally{
+
+      setLoading(false);
+
+    }
+
   };
 
   return (
@@ -43,6 +90,7 @@ const SignUp = () => {
         <div className="login-body">
 
           <label>Full Name</label>
+
           <div className="input-box">
             <i className="ri-user-line icon"></i>
             <input
@@ -54,6 +102,7 @@ const SignUp = () => {
           </div>
 
           <label>Email Address</label>
+
           <div className="input-box">
             <i className="ri-mail-line icon"></i>
             <input
@@ -65,30 +114,36 @@ const SignUp = () => {
           </div>
 
           <label>Password</label>
+
           <div className="input-box">
+
             <i className="ri-lock-line icon"></i>
 
             <input
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? "text":"password"}
               placeholder="••••••••"
               value={password}
               onChange={(e)=>setPassword(e.target.value)}
             />
 
             <i
-              className={`eye ri-${showPassword ? "eye-off-line" : "eye-line"}`}
+              className={`eye ri-${showPassword ? "eye-off-line":"eye-line"}`}
               onClick={()=>setShowPassword(!showPassword)}
             ></i>
+
           </div>
 
           {error && <p className="error">{error}</p>}
 
           <button className="login-btn" onClick={handleSignup}>
-            Sign Up
+
+            {loading ? "Creating..." : "Sign Up"}
+
           </button>
 
           <p className="signup">
-            Already have an account? <span onClick={()=>navigate("/login")}>Sign In</span>
+            Already have an account? 
+            <span onClick={()=>navigate("/login")}> Sign In</span>
           </p>
 
         </div>

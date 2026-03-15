@@ -1,27 +1,46 @@
 import { LOGO_URL } from "../utils/content";
-import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
 
 const Header = () => {
-  const [btnNameReact, setbtnNameReact] = useState("Login");
   const { cart } = useContext(CartContext);
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    setUser(storedUser);
+  }, []);
 
   const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/login");
+  };
+
+  /* Get initials */
+  const initials = user?.name
+    ? user.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
+    : user?.email?.[0]?.toUpperCase();
+
   return (
     <div className="header">
-      {/* LEFT SIDE LOGO */}
-
+      {/* LOGO */}
       <div className="logo-section">
         <Link to="/">
-          <img className="logo" src={LOGO_URL} />
+          <img className="logo" src={LOGO_URL} alt="logo" />
         </Link>
       </div>
 
       {/* NAVIGATION */}
-
       <div className="nav-items">
         <NavLink to="/" className="nav-link">
           Home
@@ -36,17 +55,27 @@ const Header = () => {
         </NavLink>
 
         {/* CART */}
-
         <Link className="cart-icon" to="/cart">
           🛒
-          {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
+          {totalItems > 0 && (
+            <span className="cart-count">{totalItems}</span>
+          )}
         </Link>
 
-        {/* LOGIN BUTTON */}
+        {/* PROFILE / LOGIN */}
+        {user ? (
+          <div className="profile-section">
+            <div className="avatar">{initials}</div>
 
-        <NavLink to="/login" className="nav-link">
-          Login
-        </NavLink>
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <NavLink to="/login" className="nav-link">
+            Login
+          </NavLink>
+        )}
       </div>
     </div>
   );

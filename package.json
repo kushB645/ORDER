@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/kushB645/ORDER#readme",
   "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",

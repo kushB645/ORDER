@@ -806,6 +806,8 @@ textarea:focus {
   margin: 20px 0;
 }
 
+
+/* login */
 .login-page{
 min-height:100vh;
 display:flex;
@@ -989,4 +991,31 @@ margin-top:20px;
 color:white;
 font-size:14px;
 text-align:center;
+}
+
+.profile-section{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.avatar{
+width:36px;
+height:36px;
+border-radius:50%;
+background:#ff6b35;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:600;
+font-size:14px;
+}
+
+.logout-btn{
+border:none;
+background:transparent;
+cursor:pointer;
+color:#ff6b35;
+font-weight:500;
 }
