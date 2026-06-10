@@ -1,5 +1,5 @@
 {
-  "name": "order",
+  "name": "qucikbite",
   "version": "1.0.0",
   "description": "creating a react food ordering app",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kushB645/ORDER.git"
+    "url": "git+https://github.com/kushB645/quickbite.git"
   },
   "keywords": [
     "react"
@@ -17,9 +17,9 @@
   "author": "Kush Bhardwaj",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kushB645/ORDER/issues"
+    "url": "https://github.com/kushB645/quickbite/issues"
   },
-  "homepage": "https://github.com/kushB645/ORDER#readme",
+  "homepage": "https://github.com/kushB645/quickbite#readme",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
@@ -32,7 +32,10 @@
     "react-router-dom": "^6.30.2"
   },
   "devDependencies": {
-    "parcel": "^2.16.1"
+    "autoprefixer": "^10.5.0",
+    "parcel": "^2.16.1",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.19"
   },
   "browserslist": [
     "last 2 version"

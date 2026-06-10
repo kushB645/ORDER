@@ -9,6 +9,7 @@ import Cart from "./components/Cart";
 import { CartProvider } from "./components/CartContext";
 import RestaurantMenu from "./components/RestaurantMenu";
 import SignUp from "./components/SignUp";
+import "../style.css";
 import Login from "./components/Login";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 

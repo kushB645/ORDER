@@ -1,24 +1,45 @@
+const RestaurantCard = ({ resData }) => {
+  const {
+    image,
+    restaurantName,
+    type,
+    address,
+    rating,
+    deliveryTime,
+  } = resData;
 
-const ResturantCard = (props) => {
-  const { resData } = props;
-
-  const { image, restaurantName, type, address, rating, deliveryTime} =
-    resData;
   return (
-    <div className="res-card" style={{ backgroundColor: " #f5f1eb" }}>
+    <div className="bg-[#f5f1eb] rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-full">
       <img
-        className="food-logo"
-        src={
-          image
-        }
-      />
-      <h3>{restaurantName}</h3>
-      <h3>{type}</h3>
-      <h3>{address}</h3>
-      <h3><i className="ri-star-s-fill"></i>{rating}</h3>
-      <h3>{deliveryTime}</h3>
+        src={image}
+        alt={restaurantName}
+        className="w-full h-56 object-cover"/>
+
+      <div className="p-4">
+        <h3 className="text-xl font-bold text-slate-800 mb-2">
+          {restaurantName}
+        </h3>
+
+        <p className="text-gray-600 mb-2">
+          {type}
+        </p>
+
+        <p className="text-gray-500 text-sm mb-3 line-clamp-2">
+          {address}
+        </p>
+
+        <div className="flex justify-between items-center">
+          <span className="font-semibold text-yellow-500">
+            ⭐ {rating}
+          </span>
+
+          <span className="text-slate-700 font-medium">
+            {deliveryTime}
+          </span>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default ResturantCard;
+export default RestaurantCard;

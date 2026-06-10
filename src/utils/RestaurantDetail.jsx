@@ -235,7 +235,7 @@ const resList = [
     address: "Hyderabad, Charminar, Telangana",
     type: "Biryani",
     parkingLot: false,
-    image: "https://purendesi.in/wp-content/uploads/2024/12/Andhra-Style-Chicken-Biryani.jpg",
+    image: "https://b.zmtcdn.com/data/reviews_photos/9c0/931fd1a09742e3f7bbe4c328b084d9c0_1751609237.jpg?fit=around|750:500&crop=750:500;*,*",
     rating: 4.3,
     deliveryTime: "25-35 mins"
   },

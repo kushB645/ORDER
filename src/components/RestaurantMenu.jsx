@@ -8,70 +8,80 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const restaurant = restaurantsMenu.find(
-    (res) => res.restaurantID === Number(resId)
+    (res) => res.restaurantID === Number(resId),
   );
 
   const restaurantDetails = resList.find(
-    (res) => res.restaurantID === Number(resId)
+    (res) => res.restaurantID === Number(resId),
   );
 
-  const { cart, addToCart, increaseQty, decreaseQty } =
-    useContext(CartContext);
+  const { cart, addToCart, increaseQty, decreaseQty } = useContext(CartContext);
 
   return (
-    <div className="restaurant-page">
-
-      {/* HERO SECTION */}
+    <div className="bg-[#f5f1eb] min-h-screen pt-20">
+      {/* Hero Section */}
       <div
-        className="restaurant-hero"
-       style={{ backgroundImage: `url(${restaurantDetails.image})` }}
+        className="relative h-[400px] bg-cover bg-center flex items-center"
+        style={{
+          backgroundImage: `url(${restaurantDetails.image})`,
+        }}
       >
-        <div className="hero-overlay">
+        <div className="absolute inset-0 bg-black/60"></div>
 
-          <Link to="/" className="back-btn">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-white">
+          <Link
+            to="/"
+            className="inline-block mb-6 bg-white/20 backdrop-blur-sm  px-4 py-2 rounded-lg hover:bg-white/30 transition"
+          >
             ← Back to Restaurants
           </Link>
 
-          <h1 className="restaurant-title">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
             {restaurantDetails.restaurantName}
           </h1>
 
-          <p className="cuisine">{restaurantDetails.cuisine}</p>
+          <p className="text-xl mb-4">{restaurantDetails.cuisine}</p>
 
-          <div className="restaurant-meta">
-            ⭐ {restaurantDetails.rating}
-            <span> ⏱ {restaurantDetails.deliveryTime}</span>
-            <span> 📍 {restaurantDetails.address}</span>
+          <div className="flex flex-col md:flex-row gap-3 md:gap-8 text-lg">
+            <span>⭐ {restaurantDetails.rating}</span>
+            <span>⏱ {restaurantDetails.deliveryTime}</span>
+            <span>📍 {restaurantDetails.address}</span>
           </div>
-
         </div>
       </div>
 
-      {/* MENU SECTION */}
-      <div className="menu-page">
-
-        <h2 className="menu-heading">Menu</h2>
+      {/* Menu Section */}
+      <div className="max-w-7xl mx-auto px-5 py-12">
+        <h2 className="text-4xl font-bold text-center mb-12">Menu</h2>
 
         {restaurant.menu.map((category) => (
-          <div key={category.category}>
-
-            <h2 className="category-title">
+          <div key={category.category} className="mb-12">
+            <h2
+              className="text-2xl md:text-3xl font-bold mb-6 text-[#ff6b35]"
+            >
               {category.category}
             </h2>
 
-            <div className="menu-category">
-
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {category.items.map((item) => {
                 const cartItem = cart.find((c) => c.id === item.id);
 
                 return (
-                  <div className="menu-card" key={item.id}>
-                    <div className="menu-info">
-                      <h3>{item.name}</h3>
-                      <p className="price">₹{item.price}</p>
+                  <div
+                    key={item.id}
+                    className="bg-white rounded-2xl shadow-lg p-4 flex justify-between items-center hover:shadow-xl transition"
+                  >
+                    {/* Left */}
+                    <div className="flex-1 pr-4">
+                      <h3 className="text-xl font-semibold mb-2">
+                        {item.name}
+                      </h3>
+
+                      <p className="text-[#ff6b35] font-bold">₹{item.price}</p>
                     </div>
 
-                    <div className="menu-right">
+                    {/* Right */}
+                    <div className="flex flex-col items-center gap-3">
                       <img
                         src={
                           item.image
@@ -79,36 +89,42 @@ const RestaurantMenu = () => {
                             : "https://cdn-icons-png.flaticon.com/512/1046/1046784.png"
                         }
                         alt={item.name}
-                        className="food-img"
+                        className=" w-24 h-24 rounded-xl object-cover"
                       />
 
                       {cartItem ? (
-                        <div className="qty-box">
-                          <button onClick={() => decreaseQty(item.id)}>−</button>
-                          <span>{cartItem.qty}</span>
-                          <button onClick={() => increaseQty(item.id)}>+</button>
+                        <div className="flex items-center gap-3">
+                          <button
+                            onClick={() => decreaseQty(item.id)}
+                            className="bg-[#ff6b35] text-white w-8 h-8 rounded-md font-bold"
+                          >
+                            −
+                          </button>
+
+                          <span className="font-semibold">{cartItem.qty}</span>
+
+                          <button onClick={() => increaseQty(item.id)} className="bg-[#ff6b35]
+                              text-white w-8 h-8 rounded-md font-bold"
+                          >
+                            +
+                          </button>
                         </div>
                       ) : (
                         <button
-                          className="add-btn"
+                          className="bg-[#ff6b35] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#e55a24] transition"
                           onClick={() => addToCart(item)}
                         >
                           ADD
                         </button>
                       )}
-
                     </div>
                   </div>
                 );
               })}
-
             </div>
-
           </div>
         ))}
-
       </div>
-
     </div>
   );
 };
