@@ -54,10 +54,10 @@ A modern **full-stack food ordering web application** built using **React.js, Ex
 ## ⚙️ Installation & Setup  
 
 ### 1. Clone the repository  
-git clone https://github.com/kushB645/ORDER.git  
+git clone https://github.com/kushB645/quickbite.git  
 
 ### 2. Navigate to project folder  
-cd ORDER  
+cd quickbite  
 
 ### 3. Install dependencies  
 npm install  
